@@ -2,7 +2,7 @@
   <div id="app">
     <app-header/>
     <item-input/>
-    <item></item>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -16,7 +16,6 @@ import item from "@/components/item.vue";
   components: {
     appHeader,
     itemInput,
-    item,
   }
 })
 export default class App extends Vue{
