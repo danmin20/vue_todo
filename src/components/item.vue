@@ -5,7 +5,7 @@
       </span>
       <input type="text" class="form-control" :value="title">
         <span class="input-group-btn">
-        <button class="btn btn-default" type="button" @click="removeItem">Go!</button>
+        <button class="btn btn-default" type="button" @click="removeItem">X</button>
       </span>
     </div>
 </template>
@@ -18,11 +18,20 @@ export default class Item extends Vue{
   @Prop() readonly id!: string;
   @Prop() readonly title!: string;
   @Prop() readonly status!: 'active' | 'clear';
-    changeStatus(){
-        return 0;
+
+  changeStatus($event: Event){
+    const target = $event.target as HTMLInputElement
+    const checked: boolean = target.checked;
+
+    if(checked){
+      this.$store.commit("changeStatus", {id: this.id, status: "clear"});
+    } else{
+      this.$store.commit("changeStatus", {id: this.id, status: "active"});
     }
-    removeItem(){
-        return 0;
-    }
+  }
+
+  removeItem(){
+    this.$store.commit("removeItem", this.id);
+  }
 }
 </script>
