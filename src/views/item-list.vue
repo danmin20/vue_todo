@@ -24,8 +24,8 @@ import { mapGetters } from "vuex";
 export default class ItemList extends Vue{
     renderList: any[] = [];
 
-    created() {
-        this.initRenderList(this.$route.params.status);
+    async created() {
+        this.$store.dispatch("initData");
     }
 
     initRenderList(status: string){
