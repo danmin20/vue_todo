@@ -14,7 +14,7 @@ import {mapState} from "vuex";
     ])
 })
 export default class ItemInput extends Vue{
-    title: any = '';
+    title = '';
 
     additem(){
         this.$store.commit("addItem", {

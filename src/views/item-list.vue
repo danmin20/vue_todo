@@ -22,7 +22,7 @@ import { mapGetters } from "vuex";
     }
 })
 export default class ItemList extends Vue{
-    renderList: any[] = [];
+    renderList: string[] = [];
 
     async created() {
         this.$store.dispatch("initData");
